@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        /* Basic reset for full page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Hide scrollbars if content is larger than viewport */
+            display: flex;
+            flex-direction: column; /* Stack rows vertically */
+            justify-content: space-around; /* Distribute space evenly between rows */
+            align-items: center; /* Center content horizontally */
+            background-color: #f0f0f0; /* Light grey background */
+            /* Using Helvetica Neue for a thinner, cleaner look */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Styling for each marquee row */
+        .marquee-row {
+            width: 100%; /* Take full width */
+            overflow: hidden; /* Hide overflowing content */
+            white-space: nowrap; /* Prevent content from wrapping */
+            box-sizing: border-box; /* Include padding and border in the element's total width */
+            padding: 0px 0; /* Reduced vertical padding for much smaller gaps between rows */
+            line-height: 1.0; /* Adjusted line height for even tighter spacing */
+            margin-bottom: 10px; /* Added margin to create space between rows */
+        }
+
+        /* Styling for the marquee text (Mobile-first base styles for screens up to 375px) */
+        .marquee-text {
+            display: inline-block; /* Essential for marquee effect */
+            font-size: 6.5em; /* Significantly larger base font for very small mobiles */
+            font-weight: 300; /* Thinner font weight */
+            letter-spacing: 0em; /* Tight letter spacing */
+            animation: marquee 25s linear infinite alternate; /* Faster speed for very small mobiles */
+        }
+
+        /* Styling for in-line images within marquee text (Mobile-first base styles) */
+        .marquee-text img {
+            height: 0.7em; /* Make image height relative to font size */
+            width: auto; /* Allow width to adjust proportionally */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 0 3px; /* Reduced space around images */
+            object-fit: cover; /* Ensure image covers the area without distortion */
+        }
+
+        /* Keyframes for the marquee animation (moves left then right) */
+        @keyframes marquee {
+            /* Start position: Center the text in the viewport */
+            0% { transform: translateX(calc(50vw - 50%)); }
+            /* End position: Move text to the rightmost visible point (right edge of text aligns with right edge of viewport) */
+            100% { transform: translateX(calc(100vw - 100%)); }
+        }
+
+        /* Responsive adjustments for larger screens (Mobile-first approach) */
+
+        /* Breakpoint for screens > 375px (e.g., iPhone 6/7/8 Plus, larger Android phones) */
+        @media (min-width: 376px) {
+            .marquee-text {
+                font-size: 7.5em; /* Larger */
+                animation-duration: 35s; /* Faster than smallest mobile */
+            }
+            .marquee-text img {
+                height: 0.75em;
+                margin: 0 3.5px;
+            }
+        }
+
+        /* Breakpoint for screens > 425px (e.g., larger phones, small tablets in portrait) */
+        @media (min-width: 426px) {
+            .marquee-text {
+                font-size: 8.5em; /* Larger */
+                animation-duration: 45s; /* Faster still */
+            }
+            .marquee-text img {
+                height: 0.8em;
+                margin: 0 4px;
+            }
+        }
+
+        /* Small devices (e.g., larger phones, small tablets in landscape) */
+        @media (min-width: 577px) {
+            .marquee-text {
+                font-size: 10em; /* Larger */
+                animation-duration: 70s; /* Slower for tablets */
+            }
+            .marquee-text img {
+                height: 0.85em;
+                margin: 0 4.5px;
+            }
+        }
+
+        /* Medium devices (e.g., tablets, small laptops) */
+        @media (min-width: 769px) {
+            .marquee-text {
+                font-size: 11em; /* Adjusted to fill space more */
+                animation-duration: 90s; /* Even slower */
+            }
+            .marquee-text img {
+                height: 0.85em; /* Adjusted to prevent truncation at 769px+ */
+                margin: 0 6px;
+            }
+        }
+
+        /* Large devices (e.g., laptops, desktops) */
+        @media (min-width: 993px) {
+            .marquee-text {
+                font-size: 8.5em; /* Further reduced for laptops to prevent cutoff */
+                animation-duration: 100s; /* Adjusted speed for new font size */
+            }
+            .marquee-text img {
+                height: 0.9em; /* Adjusted to prevent truncation at 993px+ */
+                margin: 0 8px;
+            }
+        }
+
+        /* Extra large devices (e.g., large desktops, monitors) */
+        @media (min-width: 1201px) {
+            .marquee-text {
+                font-size: 9.5em; /* Further reduced for very large screens */
+                animation-duration: 120s; /* Adjusted speed for new font size */
+            }
+            .marquee-text img {
+                height: 0.95em; /* Adjusted to prevent truncation at 1201px+ */
+                margin: 0 5px;
+            }
+        }
+
+        /* 4K and Ultra-wide screens */
+        @media (min-width: 2560px) {
+            .marquee-text {
+                font-size: 11.5em; /* Increased font size for 4K screens */
+                animation-duration: 140s; /* Adjusted speed for new font size */
+            }
+            .marquee-text img {
+                height: 1.0em; /* Adjusted to prevent truncation at 2560px+ */
+                margin: 0 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee-row">
+        <span class="marquee-text" data-base-text=" COMING SOON."></span>
+    </div>
+
+    <div class="marquee-row">
+        <span class="marquee-text" style="animation-duration: 38s;" data-base-text=" WE ARE BUILDING A BETTER EXPERIENCE."></span>
+    </div>
+
+    <div class="marquee-row">
+        <span class="marquee-text" style="animation-duration: 33s;" data-base-text=" PACE26"></span>
+    </div>
+
+    <div class="marquee-row">
+        <span class="marquee-text" style="animation-duration: 40s;" data-base-text=" WORK IN PROGRESS."></span>
+    </div>
+
+    <div class="marquee-row">
+        <span class="marquee-text" style="animation-duration: 36s;" data-base-text=" TRAILBLAZE TO YOUR PEAK."></span>
+    </div>
+
+    <script>
+        // Pool of image URLs (reduced to 6 images)
+        const imagePool = [
+            "./cap1.png", // Running
+            "./logo2.png", // Weightlifting
+            "./logo32.png",  // Bone
+            "./shirt1.png"
+    
+        ];
+
+        /**
+         * Returns an HTML string for a randomly selected image from the imagePool.
+         * The alt text is extracted from the URL or defaults to "Icon".
+         * @returns {string} HTML <img> tag.
+         */
+        function getRandomImageHtml() {
+            const randomIndex = Math.floor(Math.random() * imagePool.length);
+            const imageUrl = imagePool[randomIndex];
+            const altTextMatch = imageUrl.match(/text=([^&]+)/);
+            const altText = altTextMatch ? decodeURIComponent(altTextMatch[1]) : "Icon";
+            return `<img src="${imageUrl}" alt="${altText}">`;
+        }
+
+        /**
+         * Generates the content for a marquee row by inserting random images
+         * between words/phrases and repeating the content for continuous scroll.
+         * @param {string} baseText The base text content for the row.
+         * @param {number} repetitions The number of times to repeat the base text with images.
+         * @returns {string} The full HTML content for the marquee span.
+         */
+        function generateMarqueeContent(baseText, repetitions = 5) {
+            let content = '';
+            const words = baseText.split(' ');
+            const numWords = words.length;
+
+            for (let i = 0; i < repetitions; i++) {
+                let segmentParts = [];
+                // Determine how many images to insert based on word count
+                // We want 2 images if numWords >= 3 to ensure non-side-by-side placement.
+                // If numWords is 1 or 2, we can only insert 1 image without them being side-by-side or overlapping.
+                const actualImagesToInsert = (numWords >= 3) ? 2 : ((numWords >= 1) ? 1 : 0);
+
+                // 1. Select unique image URLs for this segment
+                const selectedImageUrls = [];
+                const poolCopy = [...imagePool]; // Create a copy to pick unique images for this segment
+                for (let k = 0; k < actualImagesToInsert; k++) {
+                    const randIdx = Math.floor(Math.random() * poolCopy.length);
+                    selectedImageUrls.push(poolCopy[randIdx]);
+                    poolCopy.splice(randIdx, 1); // Remove selected image to ensure uniqueness within this segment
+                }
+
+                // 2. Determine insertion points to avoid side-by-side images
+                const insertionPoints = [];
+                if (actualImagesToInsert === 1) {
+                    // If only 1 image, pick any random spot
+                    insertionPoints.push(Math.floor(Math.random() * numWords));
+                } else if (actualImagesToInsert === 2) {
+                    // Pick two non-consecutive indices
+                    let p1 = Math.floor(Math.random() * numWords);
+                    let p2 = p1;
+                    let attempts = 0;
+                    // Ensure p2 is not p1 and not adjacent to p1
+                    while ((p2 === p1 || Math.abs(p2 - p1) <= 1) && attempts < 100) {
+                        p2 = Math.floor(Math.random() * numWords);
+                        attempts++;
+                    }
+                    if (attempts < 100) { // Successfully found non-adjacent
+                        insertionPoints.push(p1, p2);
+                    } else { // Fallback if unable to find non-adjacent after many attempts (e.g., very specific short texts)
+                        // If we can't find two non-adjacent, insert only one image.
+                        insertionPoints.push(Math.floor(Math.random() * numWords));
+                        selectedImageUrls.pop(); // Remove the second image as we can only place one
+                    }
+                }
+                insertionPoints.sort((a, b) => a - b); // Sort for correct insertion order
+
+                // 3. Insert images into the current segment words
+                let segmentWithImages = [];
+                let insertedCount = 0;
+                for (let j = 0; j < numWords; j++) {
+                    segmentWithImages.push(words[j]);
+                    if (insertedCount < selectedImageUrls.length && insertionPoints.includes(j)) {
+                        const imageUrl = selectedImageUrls[insertedCount];
+                        const altTextMatch = imageUrl.match(/text=([^&]+)/);
+                        const altText = altTextMatch ? decodeURIComponent(altTextMatch[1]) : "Icon";
+                        segmentWithImages.push(`<img src="${imageUrl}" alt="${altText}">`);
+                        insertedCount++;
+                    }
+                }
+                content += segmentWithImages.join(' ');
+            }
+            return content;
+        }
+
+        // Populate each marquee span with dynamically generated content on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.marquee-text').forEach(span => {
+                const baseText = span.dataset.baseText; // Get the base text from data-base-text attribute
+                if (baseText) {
+                    span.innerHTML = generateMarqueeContent(baseText, 5); // Default repetitions to 5
+                }
+            });
+        });
+    </script>
+</body>
+</html>
